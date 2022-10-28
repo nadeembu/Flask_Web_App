@@ -1,10 +1,10 @@
-'''
 # Navigate to the followin URL's to test it works
 # http://127.0.0.1:5000/login
 # http://127.0.0.1:5000/logout
 # http://127.0.0.1:5000/sign-up
-'''
 
+
+from turtle import color
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -44,6 +44,7 @@ def logout():
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
+    """ Creating the new user sign up form """
     if request.method == 'POST':
         email = request.form.get('email')
         first_name = request.form.get('firstName')
@@ -51,6 +52,9 @@ def sign_up():
         password2 = request.form.get('password2')
 
         user = User.query.filter_by(email=email).first()
+
+        # Performing validation on the sign up data that was entered by
+        # the user. flash : flashes the error message to the screen.
         if user:
             flash('Email already exists.', category='error')
         elif len(email) < 4:
