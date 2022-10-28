@@ -52,6 +52,8 @@
       </div>
     </nav>
 
+    <!-- Here we setup the flashed messages that were configured in the 
+         auth.py file so that get shown-->
     {% with messages = get_flashed_messages(with_categories=true) %} {% if
     messages %} {% for category, message in messages %} {% if category ==
     'error' %}
