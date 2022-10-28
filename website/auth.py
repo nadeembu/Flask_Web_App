@@ -7,6 +7,7 @@
 from turtle import color
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User
+# hash is what's used to prevent a password being stored as plain text.
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
