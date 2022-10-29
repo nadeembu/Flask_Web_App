@@ -22,6 +22,8 @@ def login():
         email = request.form.get('email')
         password = request.form.get('password')
 
+        # Query the database to see if the users email already exist.
+        # .first will return the first result
         user = User.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
