@@ -1,6 +1,6 @@
-<!--base.html is the like the global configuration file for our website
-    We then have other templates like home.html which further customize
-    the way our website looks and works-->
+<!---base.html is the base template of how each webpage will look.
+We don't render this page. It's used by our other(child) html files
+which inherit all the attributes that are configured in it.-->
 
 <!DOCTYPE html>
 <html>
@@ -25,7 +25,6 @@
     <title>{% block title %}Home{% endblock %}</title>
   </head>
   <body>
-
     <!--Define a navigation bar (navbar) used to navigate to different pages on our
         website by displaying a button. I.e home, login, logout, etc-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -73,7 +72,7 @@
     {% endif %} {% endfor %} {% endif %} {% endwith %}
 
     <div class="container">{% block content %} {% endblock %}</div>
-    
+
     <!--Here we load the java scripts that are related to bootstrap
         must be defined at the bottom of this file -->
     <script
