@@ -6,4 +6,4 @@ app = create_app()
 # debug=True means every time we make a change to our python
 # code it will automatically rerun the flask webserver.
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="127.0.0.1", port=5002, debug=True)
